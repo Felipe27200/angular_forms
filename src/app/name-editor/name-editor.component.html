@@ -1,0 +1,21 @@
+<label for="name">Name: </label>
+
+<!-- 
+    Vincular el form control para el elemento input.
+-->
+<input type="text" id="name" [formControl]="name">
+
+<!-- 
+    Mostrar el valor del form control
+    usando interpolación
+-->
+<p>Value: {{ name.value }}</p>
+
+<!-- 
+    Este botón simula la actualización de datos, sin
+    que el usuario use el <input>
+
+    Al pulsarlo el cambio se verá reflejado en el <p>
+    y en el <input>
+-->
+<button type="button" (click)="updateName()">Update Name</button>

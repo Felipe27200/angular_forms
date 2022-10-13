@@ -4,13 +4,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Importar la dependencia necesaria para los formularios reactivos
+//   Trae las directivas necesarias 
+import { ReactiveFormsModule } from '@angular/forms';
+import { NameEditorComponent } from './name-editor/name-editor.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { FormNestedComponent } from './form-nested/form-nested.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NameEditorComponent,
+    ProfileEditorComponent,
+    FormNestedComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

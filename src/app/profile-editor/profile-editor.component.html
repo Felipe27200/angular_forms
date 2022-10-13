@@ -1,0 +1,32 @@
+<!--  
+    El profileForm tipo FormGroup es vinculado al 
+    elemento <form> con la directiva [formGroup].
+
+    Se escucha el evento ngSubmit, que es cuando se hace
+    submit en el formulario. De esta forma se envían los
+    valores del formulario al método onSubmit()
+
+-->
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <!--  
+        formControlName, vincula el control definido en el 
+        profileForm, con su respectivo nombre. Esto permite
+        que emita los cambios a la instancia FormGroup.
+    -->
+    <label for="first-name">First Name: </label>
+    <input type="text" id="first-name" formControlName="firstName">
+    <br>
+
+    <label for="last-name">Last Name: </label>
+    <input type="text" id="last-name" formControlName="lastName">
+
+    <p>Complete the form to enable button.</p>
+
+    <!-- 
+        Como aun no se ha realizado ninguna validación, el botón
+        siempre estará habilitado.
+    -->
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+</form>
