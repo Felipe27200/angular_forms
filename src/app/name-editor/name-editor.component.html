@@ -1,21 +1,54 @@
-<label for="name">Name: </label>
+<h2>Basic Form Control</h2>
 
+<label for="name">Name: </label>
 <!-- 
-    Vincular el form control para el elemento input.
+    +-----------------------------+
+    | ASOCIAR EL FORM CONTROL CON | 
+    |     ELEMENTOS DEL FORM      |
+    +-----------------------------+
+
+    Se usa la vinculación de form control
+    añadiendo [formControl].
+
+    [formControl] vincula el elemento input
+    con la propiedad en el componente, por
+    ende, ambos se comunican entre sí, reflejando
+    los cambios del uno en el otro y visceversa.
+
+    La expresión entre comillas después de:
+    [formControl], hace referencia a la 
+    propiedad en el componente.
 -->
 <input type="text" id="name" [formControl]="name">
 
 <!-- 
-    Mostrar el valor del form control
-    usando interpolación
+    +--------------------------------+
+    | DISPLAY THE FORM CONTROL VALUE |
+    +--------------------------------+
+
+    • A través del Observable valueChanges donde
+      se pueden escuchar los cambios del valor del
+      form en el template usando AsyncPipe.
+
+    • Usando el método subscribe() de la clase del
+      componente.
+
+    • Con la propiedad value, que provee un snapshot
+      del valor actual.
+
+    Se muestran los cambios aplicados en el form control
+    element.
+
+    FormControl provee métodos y propiedades para trabajar
+    con reactive form.
 -->
 <p>Value: {{ name.value }}</p>
 
 <!-- 
-    Este botón simula la actualización de datos, sin
-    que el usuario use el <input>
+    Este botón simula la actualización de datos, 
+    sin que el usuario use el <input>.
 
-    Al pulsarlo el cambio se verá reflejado en el <p>
-    y en el <input>
+    Al pulsarlo el cambio se verá reflejado en 
+    el </p> y en el <input>.
 -->
 <button type="button" (click)="updateName()">Update Name</button>

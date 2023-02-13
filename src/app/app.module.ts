@@ -4,9 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// Importar la dependencia necesaria para los formularios reactivos
-//   Trae las directivas necesarias 
+/**
+ * Para usar los reactive forms, se debe importar
+ * esta dependencia y añadirla dentro del array import
+ * de @NgModule
+ */
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { FormNestedComponent } from './form-nested/form-nested.component';

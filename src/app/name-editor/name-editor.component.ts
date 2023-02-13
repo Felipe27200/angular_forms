@@ -7,6 +7,15 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./name-editor.component.css']
 })
 export class NameEditorComponent implements OnInit {
+
+  /**
+   * Se usa el constructor de FormControl para
+   * inicializar sus valores.
+   * 
+   * Creando este control se obtiene de inmediato
+   * la capacidad de escuchar para actualizar y 
+   * validar el estado del input del form.
+   */
   name = new FormControl('');
 
   constructor() { }
@@ -19,7 +28,7 @@ export class NameEditorComponent implements OnInit {
   updateName() 
   {
     /**
-     * Actualiza el valor del form control
+     * Actualiza el valor de la instancia form control
      * y valida la estructura de ese valor para éste.
      */
     this.name.setValue('Nancy');
