@@ -13,9 +13,21 @@ import {FormGroup, FormControl } from '@angular/forms';
 export class ProfileEditorComponent implements OnInit {
 
   /**
+   * +------------+
+   * | FROM GROUP |
+   * +------------+
+   *  
+   * Se instancia FormGroup y se inicializa con un
+   * objeto de clave - valor, para hacer referencia
+   * a los campos del form, el valor es una instancia
+   * FormControl.
+   * 
    * Una instacia de FormGroup provee su modelo 
    * de valores como un objeto, en el que sus valores
    * son los formControl individuales.
+   * 
+   * FormGroup posee los mismos métodos y propiedades
+   * que FormControl.
    */
   profileForm = new FormGroup(
     {
@@ -36,7 +48,10 @@ export class ProfileEditorComponent implements OnInit {
     /**
      * console.warn se usa para registrar un mensaje
      * en la consola del navegador.
+     * 
+     * Se puede acceder a los valores del formGroup
+     * con su propiedad value.
      */
-    console.warn(this.profileForm.value);
+    console.dir(this.profileForm.value);
   }
 }

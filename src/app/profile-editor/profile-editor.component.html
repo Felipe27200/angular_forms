@@ -1,11 +1,20 @@
+<h2>Form Group</h2>
 <!--  
+    +------------------------+
+    | VINCULAR EL FORM GROUP |
+    +------------------------+
+
     El profileForm tipo FormGroup es vinculado al 
     elemento <form> con la directiva [formGroup].
 
     Se escucha el evento ngSubmit, que es cuando se hace
     submit en el formulario. De esta forma se envían los
-    valores del formulario al método onSubmit()
+    valores del formulario al método onSubmit().
 
+    * FormGroup sigue el estatus y cambios en cada
+    * uno de sus controles, por lo que cuando esto
+    * ocurre el parent control también emite un
+    * nuevo estado o valor cambiado.
 -->
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <!--  
@@ -23,9 +32,8 @@
     <p>Complete the form to enable button.</p>
 
     <!-- 
-        Como aun no se ha realizado ninguna validación, el botón
-        siempre estará habilitado.
+        Como aun no se ha realizado ninguna validación, 
+        el botón siempre estará habilitado.
     -->
     <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-
 </form>
