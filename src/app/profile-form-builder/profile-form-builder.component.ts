@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Esta dependencia provee métodos para
+ * optimizar el proceso de creación y manejo
+ * de controls para los formularios.
+ */
 import { FormBuilder } from '@angular/forms';
+
+/**
+ * Validar Forms
+ */
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-form-builder',
@@ -11,7 +21,11 @@ import { FormBuilder } from '@angular/forms';
 export class ProfileFormBuilderComponent implements OnInit 
 {
   /**
-   * El método group permite generar formGroups
+   * +-------------------------------------+
+   * | BUILDING FORMGROUP WITH FORMBUILDER |
+   * +-------------------------------------+
+   *
+   * El método group() permite generar FormGroup
    * y estos también pueden ser anidados.
    * 
    * El valor de cada nombre de control es un array
@@ -24,7 +38,15 @@ export class ProfileFormBuilderComponent implements OnInit
    */
    profileForm = this.fb.group(
     {
-      firstName: [''],
+      /**
+       * El segundo elemento establece que el
+       * campo vinculado al control firstName
+       * debe ser requerido.
+       * 
+       * Esto hará que el valor del Form Control
+       * sea inválido hasta que se llene.
+       */
+      firstName: ['', Validators.required],
       lastName: [''],
       
       address: this.fb.group({

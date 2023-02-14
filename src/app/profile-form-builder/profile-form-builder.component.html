@@ -1,3 +1,4 @@
+<h2>Form Builder</h2>
 
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <label for="first-name">First Name: </label>
@@ -37,10 +38,22 @@
     </div>
 
     <p>Complete the form to enable button.</p>
-    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 
+    <!-- 
+        Como ya existe un estado para el formulario, basado
+        en si el campo first-name ha sido llenado o no.
+        El botón Submit ahora se habilitará y deshabilitara
+        dependiendo ese estado del form.
+     -->
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 </form>
-<br>
+
+<h2>Datos Form</h2>
+
+<p>{{ profileForm.value | json }}</p>
+
+<p style="margin-top: 50px;">Form Status: {{ profileForm.status }}</p>
+
 <!--  
     Al pulsarlo actualizará los datos del formulario según el método y
     esto se verán reflejados en el template.
