@@ -9,6 +9,15 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 export class FormNestedComponent implements OnInit
 {
+  /**
+   * +-------------------+
+   * | NESTED FORMGROUPS |
+   * +-------------------+
+   * 
+   * FormGroups puede aceptar FormControl
+   * individuales y también otros FormGroup
+   * para hacer formularios más complejos.
+   */
   profileForm = new FormGroup(
     {
       firstName: new FormControl(''),
@@ -24,41 +33,72 @@ export class FormNestedComponent implements OnInit
     }
   );
 
-  constructor()
-  {
+  constructor() { }
 
-  }
-
-  ngOnInit(): void 
-  {
-
-  }
+  ngOnInit(): void { }
 
   onSubmit()
   {
     console.warn(this.profileForm.value);
   }
 
-  updateProfile()
+  updateProfilePatchValue()
   {
     /**
-     * Con el método patchValue(), se actualizan
-     * algunas partes del formulario.
+     * +-------------------------------------+
+     * | UPDATE SOME PARTS OF THE FORM GROUP |
+     * +-------------------------------------+
+     * 
+     * Con el método patchValue(), se pueden actualizar 
+     * algunas o todas las partes del formulario.
      * 
      * Respeta la estructura, pero no requiere que
      * todos los datos de la estructura sean enviados.
+     * 
+     * Si algún dato falla el error puede no ser reportado
+     * adecuadamente y seguir con la ejecución.
      */
     this.profileForm.patchValue(
       {
         firstName: 'Nancy',
 
         /**
+         * Se debe indicar una estructura similar
+         * a la definida en el FormGroup.
+         * 
          * Es necesario definer la propiedad street 
          * dentro del objeto address, ya que así es la
          * estructura del formulario
          */
         address: {
           street: '123 Drew Street',
+        }
+      }
+    );
+  }
+
+  updateProfileSetValue()
+  {
+    /**
+     * setValue() -> sigue estrictamente la 
+     * estructura del FormGroup, por lo que es 
+     * necesario definer todas las propiedades
+     * definidas en ese FormGroup.
+     * 
+     * Este enfoque ofrece una mayor seguridad
+     * a la hora de manejar errores.
+     */
+    this.profileForm.setValue(
+      {
+        firstName: "Felipe",
+        lastName: "Zea",
+  
+        // Anidar un FormGroup
+        address: {
+          street: "Avenida calle 80",
+          city: "BOGOTÁ",
+          state: "BOGOTÁ D.C",
+          zip: "52-60", 
         }
       }
     );
